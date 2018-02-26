@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Topic name</th>
+      <th>Created at</th>
+      <th>Closed at</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let Topic of Topics">
+      <td>{{Topic.name}}</td>
+      <td>{{Topic.openedAt}}</td>
+      <td>{{Topic.createdAt}}</td>
+    </tr>
+  </tbody>
+</table>

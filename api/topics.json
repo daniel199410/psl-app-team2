@@ -1,0 +1,83 @@
+{
+  "topics": [
+    {
+      "id": "1a",
+      "name": "php",
+      "description": "Esto es una descripción para java",
+      "status": 3,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-25T20:12:40.450Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z",
+      "closedAt": "2018-02-26T00:45:58.719Z"
+    },
+    {
+      "id": "2g",
+      "name": "php",
+      "description": "Esto es una descripción para java",
+      "status": 3,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-25T20:12:40.450Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z",
+      "closedAt": "2018-02-26T00:46:06.567Z"
+    },
+    {
+      "id": "3d",
+      "name": "python",
+      "description": "Esto es una descripción para java",
+      "status": 2,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-25T20:12:40.450Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z"
+    },
+    {
+      "id": "3j",
+      "name": "python",
+      "description": "Esto es una descripción para java",
+      "status": 2,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-26",
+      "expiredAt": "2018-02-25T20:12:40.450Z"
+    },
+    {
+      "id": "3g",
+      "name": "python",
+      "description": "Esto es una descripción para java",
+      "status": 2,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-26T00:18:30.363Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z"
+    },
+    {
+      "id": "3l",
+      "name": "python",
+      "description": "Esto es una descripción para java",
+      "status": 2,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-26T00:35:50.419Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z"
+    },
+    {
+      "id": "3s",
+      "name": "python",
+      "description": "Esto es una descripción para java",
+      "status": 2,
+      "teachers_count": 1,
+      "students_count": 12,
+      "createdAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-25T20:12:40.450Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z"
+    }
+  ]
+}
