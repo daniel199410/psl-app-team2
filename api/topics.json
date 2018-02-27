@@ -4,25 +4,25 @@
       "id": "1a",
       "name": "php",
       "description": "Esto es una descripción para java",
-      "status": 1,
+      "status": 3,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
-      "openedAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-27T01:18:08.171Z",
       "expiredAt": "2018-02-25T20:12:40.450Z",
-      "closedAt": "2018-02-26T00:45:58.719Z"
+      "closedAt": "2018-02-27T01:18:37.188Z"
     },
     {
       "id": "2g",
       "name": "php",
       "description": "Esto es una descripción para java",
-      "status": 1,
+      "status": 2,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
-      "openedAt": "2018-02-25T20:12:40.450Z",
+      "openedAt": "2018-02-27T01:19:31.821Z",
       "expiredAt": "2018-02-25T20:12:40.450Z",
-      "closedAt": "2018-02-26T00:46:06.567Z"
+      "closedAt": "2018-02-27T00:08:33.163Z"
     },
     {
       "id": "3d",
@@ -32,25 +32,27 @@
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
-      "openedAt": "2018-02-25T20:12:40.450Z",
-      "expiredAt": "2018-02-25T20:12:40.450Z"
+      "openedAt": "2018-02-27T01:19:44.197Z",
+      "expiredAt": "2018-02-25T20:12:40.450Z",
+      "closedAt": "2018-02-27T00:30:32.099Z"
     },
     {
       "id": "3j",
       "name": "python",
       "description": "Esto es una descripción para java",
-      "status": 2,
+      "status": 1,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
       "openedAt": "2018-02-26",
-      "expiredAt": "2018-02-25T20:12:40.450Z"
+      "expiredAt": "2018-02-25T20:12:40.450Z",
+      "closedAt": "2018-02-26T16:37:13.959Z"
     },
     {
       "id": "3g",
       "name": "python",
       "description": "Esto es una descripción para java",
-      "status": 2,
+      "status": 1,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
@@ -61,7 +63,7 @@
       "id": "3l",
       "name": "python",
       "description": "Esto es una descripción para java",
-      "status": 2,
+      "status": 1,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",
@@ -72,7 +74,7 @@
       "id": "3s",
       "name": "python",
       "description": "Esto es una descripción para java",
-      "status": 2,
+      "status": 1,
       "teachers_count": 1,
       "students_count": 12,
       "createdAt": "2018-02-25T20:12:40.450Z",

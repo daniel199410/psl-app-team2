@@ -26,7 +26,7 @@ export class TopicsService {
     let searchUrl = this.searchUrl + "/topics/" + topics.id;
     let promise = new Promise((resolve, reject) => {
       this.http.put(searchUrl, topics).toPromise().
-      then(res => {this.router.navigate(['/']);}, msg => { reject(msg); });
+      then(res => {this.router.navigate(['/groups_to_be_open']);}, msg => { reject(msg); });
     });
   }
 
