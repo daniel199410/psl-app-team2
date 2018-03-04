@@ -61,6 +61,11 @@ table{
     margin: 0 auto;
   }
 
+.blur{
+    filter: -webkit-blur(4px);
+    -webkit-filter: blur(4px);
+}
+
 .hidden{
     display: none;
 }

@@ -16,6 +16,7 @@ export class GroupsToBeOpenComponent implements OnInit {
   public isAscending: boolean = false;
   selectedTopic: Topic;
   hideChild: boolean = false;
+  blur:boolean = false;
   constructor(private topicsService:TopicsService, private orderService:OrderService, private dateService:DateService) { }
 
   ngOnInit() {
@@ -36,6 +37,7 @@ export class GroupsToBeOpenComponent implements OnInit {
   hide(m:boolean):void{
     console.log(this.hideChild);
     this.hideChild = m;
+    this.blur = false;
   }
 
   checkReady(studentCount:number, teachersCount:number){
@@ -45,6 +47,7 @@ export class GroupsToBeOpenComponent implements OnInit {
   onSelect(topic: Topic){
     this.selectedTopic = topic;
     this.hideChild = false;
+    this.blur = true;
   }
 
   openTopic(topic:Topic){

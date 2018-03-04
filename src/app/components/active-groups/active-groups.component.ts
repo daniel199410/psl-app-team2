@@ -13,6 +13,7 @@ import { DateService } from '../../services/date.service';
 export class ActiveGroupsComponent implements OnInit {
   private topics: Topic[];
   selectedTopic: Topic;
+  blur:boolean = false;
   private isHidden:boolean = true;
   
   constructor(private topicsService:TopicsService, private orderService:OrderService, private dateService:DateService) { }
@@ -23,6 +24,7 @@ export class ActiveGroupsComponent implements OnInit {
 
   closeChild(state:boolean){
     this.isHidden = state;
+    this.blur = false;
   }
 
   getTopics():void{
@@ -39,6 +41,7 @@ export class ActiveGroupsComponent implements OnInit {
   onSelect(topic: Topic){
     this.selectedTopic = topic;
     this.isHidden = false;
+    this.blur = true;
   }
 
   openTopic(topic:Topic){

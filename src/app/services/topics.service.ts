@@ -9,15 +9,16 @@ const httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/jso
 
 @Injectable()
 export class TopicsService {
-  private apiUrl = 'https://integrador2018.herokuapp.com/topics'; 
+  //private apiUrl = 'https://integrador2018.herokuapp.com/topics'; 
   //private apiUrl = 'http://localhost:8080/topics';
+  private apiUrl = 'http://localhost:3000/topics';
 
   constructor(
     private http: HttpClient
   ) { }
 
   getTopics(status: number): Observable<Topic[]>{
-    return this.http.get<Topic[]>(`${this.apiUrl}/findByStatus?status=${status}`)
+    return this.http.get<Topic[]>(`${this.apiUrl}?status=${status}`)
   }
 
   deleteTopic(topic:Topic): Observable<Topic>{
