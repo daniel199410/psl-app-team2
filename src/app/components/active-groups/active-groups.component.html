@@ -1,0 +1,26 @@
+<div class="table-container">
+  <table class="bordered highlight responsive-table">
+       <thead class="bordered highlight responsive-table">
+    <tr>
+      <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+      <th>Description</th>
+      <th>Date open <a (click)="orderByCreationDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+      <th>Learning<a (click)="orderByLearning()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+      <th>Guiding<a (click)="orderByTeachers()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+      <th>Chat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let topic of topics">
+      <td>{{ topic.name }}</td>
+      <td class="description-field">{{ topic.description }}</td>
+      <td>{{ topic.openedAt | timeAgo}}</td>
+      <td>{{ topic.students }}</td>
+      <td>{{ topic.teachers }}</td> 
+      <td>{{ topic.chat }}</td>     
+      <td><a class="black-text" (click)="deleteTopic(topic)"><i class="material-icons edition-icons">close</i>close</a></td>
+      <td><a (click)="onSelect(topic)" class="icon-container black-text"><i class="material-icons edition-icons">border_color</i>edit</a></td>
+    </tr>
+  </tbody>
+  <app-edition-popup [topic]="selectedTopic" [isHidden]="isHidden" (hideEmitter)="closeChild($event)"></app-edition-popup>
+</table>

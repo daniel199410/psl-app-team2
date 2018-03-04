@@ -1,0 +1,19 @@
+<div class="table-container">
+  <table class="bordered highlight responsive-table">
+       <thead>
+      <tr>
+        <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th>Created at <a (click)="orderByCreationDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th>Closed at <a (click)="orderByClosedDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let topic of topics">
+        <td>{{ topic.name }}</td>
+        <td>{{ topic.createdAt | timeAgo}}</td>
+        <td>{{ topic.closedAt | timeAgo}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

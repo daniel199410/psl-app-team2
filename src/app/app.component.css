@@ -6,23 +6,29 @@
 h1{
     font-size: 50px;
 }
+.nav{
+  background-color: white;
+  position: fixed;
+  z-index: 100;
+}
 
-nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-  nav a:visited, a:link {
-    color: #607D8B;
-  }
-  nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
-  }
-  nav a.active {
-    color: #039be5;
-  }
+nav a:visited, a:link {
+  color: #607D8B;
+}
+
+nav ul{
+  width: 70%;
+  margin: 0 auto;
+}
+
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+  
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+

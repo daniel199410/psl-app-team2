@@ -3,9 +3,10 @@ export class Topic{
     name: string;
     description: string;
     status: number;
-    teachers_count: number;
-    students_count: number;
+    chat:string;
+    teachers: number;
+    students: number;
     createdAt: string;
     openedAt: string;
-    expiredAt: string;
+    closedAt: string;
 }

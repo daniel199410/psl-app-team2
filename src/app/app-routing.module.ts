@@ -1,18 +1,21 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { GroupsToBeOpenComponent } from './groups-to-be-open/groups-to-be-open.component';
-import { ActiveGroupsComponent } from './active-groups/active-groups.component';
-import { ClosedGroupsComponent } from './closed-groups/closed-groups.component';
+
+import { ActiveGroupsComponent } from './components/active-groups/active-groups.component';
+import { GroupsToBeOpenComponent } from './components/groups-to-be-open/groups-to-be-open.component';
+import { ClosedGroupsComponent } from './components/closed-groups/closed-groups.component';
+import { DescriptionDetailComponent } from './components/description-detail/description-detail.component';
 
 const routes: Routes = [
-  { path: 'groups_to_be_open', component: GroupsToBeOpenComponent },
-  { path: 'active_groups', component: ActiveGroupsComponent },
-  { path: 'closed_groups', component: ClosedGroupsComponent }
+  { path: '', redirectTo: '/topicsToBeOpen', pathMatch:'full'},
+  { path: 'openTopics', component: ActiveGroupsComponent },
+  { path: 'topicsToBeOpen', component: GroupsToBeOpenComponent },
+  { path: 'closedGroups', component: ClosedGroupsComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes)],
   exports: [ RouterModule ]
 })
-
-export class AppRoutingModule {}
+export class AppRoutingModule { }

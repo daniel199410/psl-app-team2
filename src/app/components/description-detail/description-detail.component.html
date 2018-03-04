@@ -1,0 +1,14 @@
+<div [class.hidden] = "hide">
+  <div *ngIf="topic" class="description-wrapper">
+    <div class="input-field">
+      <textarea class="description-input materialize-textarea" #DescriptionText required>{{ topic.description}}</textarea>
+      <label class="active" for="textAreaD">Description</label>
+    </div>
+    <div class="input-field">
+      <label class="active" for="linkText">Chat</label>
+      <input #linkText type="text" class="description-input inputText" required>
+    </div>
+    <a class="waves-effect waves-light btn icon-container" (click)="createTopic(topic, linkText.value, DescriptionText.value)">Open group</a>
+    <div class="close-pop-up"><a class="block" (click)="onClose()" ><i class="material-icons ">close</i></a></div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('psl App', () => {
+describe('matches-fe App', () => {
   let page: AppPage;
 
   beforeEach(() => {

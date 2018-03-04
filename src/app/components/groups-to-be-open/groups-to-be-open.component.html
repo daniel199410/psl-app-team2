@@ -1,0 +1,23 @@
+<div class="table-container">
+ <table class="bordered highlight responsive-table">
+      <thead>
+        <tr>
+          <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+          <th>Description </th>
+          <th>Learning <a (click)="orderByLearning()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+          <th>Guiding <a (click)="orderByTeachers()"><i class="material-icons order-icons">&#xE240;</i></a></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let topic of topics" [class.ready-to-open]="checkReady(topic.students, topic.teachers)">
+          <td>{{ topic.name }}</td>
+          <td class="description-field">{{ topic.description }}</td>
+          <td>{{ topic.students }}</td>
+          <td>{{ topic.teachers }}</td>
+          <td><a (click)="onSelect(topic)" class="black-text icon-container"><i class="material-icons edition-icons">create</i>Open</a></td>
+          <td><a (click)="deleteTopic(topic)" class="black-text icon-container"><i class="material-icons edition-icons">close</i>Close</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <app-description-detail [topic]="selectedTopic" [hide]="hideChild" (hidec)="hide($event)"></app-description-detail>
+</div>
