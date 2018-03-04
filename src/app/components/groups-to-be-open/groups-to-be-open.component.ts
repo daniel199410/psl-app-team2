@@ -17,6 +17,7 @@ export class GroupsToBeOpenComponent implements OnInit {
   selectedTopic: Topic;
   hideChild: boolean = false;
   blur:boolean = false;
+  height = window.innerHeight;
   constructor(private topicsService:TopicsService, private orderService:OrderService, private dateService:DateService) { }
 
   ngOnInit() {

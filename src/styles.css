@@ -69,3 +69,7 @@ table{
 .hidden{
     display: none;
 }
+
+.gray{
+    background-color: #424242;
+  }

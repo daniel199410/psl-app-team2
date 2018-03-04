@@ -14,6 +14,7 @@ export class ActiveGroupsComponent implements OnInit {
   private topics: Topic[];
   selectedTopic: Topic;
   blur:boolean = false;
+  height = window.innerHeight;
   private isHidden:boolean = true;
   
   constructor(private topicsService:TopicsService, private orderService:OrderService, private dateService:DateService) { }
