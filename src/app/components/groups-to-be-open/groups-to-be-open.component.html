@@ -1,6 +1,6 @@
 <div [style.height.px]="height" [class.gray]="blur">
   <div class="table-container" [class.blur]="blur">
-  <table class="bordered highlight responsive-table" [mfData]="topics" #mf="mfDataTable" [mfRowsOnPage]="2">
+  <table class="bordered highlight responsive-table">
         <thead>
           <tr>
             <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = "let topic of mf.data" [class.ready-to-open]="checkReady(topic.students, topic.teachers)">
+          <tr *ngFor = "let topic of topics" [class.ready-to-open]="checkReady(topic.students, topic.teachers)">
             <td>{{ topic.name }}</td>
             <td class="description-field">{{ topic.description }}</td>
             <td>{{ topic.students }}</td>
@@ -19,11 +19,6 @@
             <td><a (click)="deleteTopic(topic)" class="black-text icon-container"><i class="material-icons edition-icons">close</i>Close</a></td>
           </tr>
         </tbody>
-        <tfoot>
-          <td>
-            <mfBootstrapPaginator></mfBootstrapPaginator>
-          </td>
-        </tfoot>
       </table>
   </div>
   <app-description-detail [topic]="selectedTopic" [hide]="hideChild" (hidec)="hide($event)"></app-description-detail>

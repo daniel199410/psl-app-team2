@@ -2,8 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterializeModule } from 'angular2-materialize';
-import { TimeAgoPipe } from 'time-ago-pipe';
-import { DataTableModule } from 'angular2-datatable';
+import {TimeAgoPipe} from 'time-ago-pipe';
 
 import { AppComponent } from './app.component';
 import { TopicsService } from './services/topics.service';
@@ -29,8 +28,7 @@ import { DateService } from './services/date.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    DataTableModule
+    HttpClientModule
   ],
   providers: [TopicsService, OrderService, DateService],
   bootstrap: [AppComponent]

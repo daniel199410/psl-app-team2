@@ -73,7 +73,3 @@ table{
 .gray{
     background-color: #424242;
   }
-
-.pagination li.active{
-    background-color: black;
-}
