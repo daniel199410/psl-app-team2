@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material';
 
 import { Topic } from '../../models/topic';
 import { TopicsService } from '../../services/topics.service';
 import { OrderService } from '../../services/order.service';
 import { DateService } from '../../services/date.service';
+import { EditionPopupComponent } from '../edition-popup/edition-popup.component';
+import { CloseTopicPopupComponent } from '../close-topic-popup/close-topic-popup.component';
+import { MatSnackBar } from '@angular/material';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-active-groups',
@@ -13,11 +19,32 @@ import { DateService } from '../../services/date.service';
 export class ActiveGroupsComponent implements OnInit {
   private topics: Topic[];
   selectedTopic: Topic;
-  blur:boolean = false;
-  height = window.innerHeight;
   private isHidden:boolean = true;
-  
-  constructor(private topicsService:TopicsService, private orderService:OrderService, private dateService:DateService) { }
+  items = [
+    {value: "10", viewValue:"10"},
+    {value: "20", viewValue:"20"},
+    {value: "30", viewValue:"30"}
+  ];
+
+  constructor(
+    private topicsService:TopicsService, 
+    private orderService:OrderService, 
+    private dateService:DateService,
+    public dialog: MatDialog,
+    public snackBar: SnackbarService
+  ) { }
+
+  openCloseDialog(topic:Topic){
+  let closeDialogRef = this.dialog.open(CloseTopicPopupComponent, {
+    data: {topic:topic}
+  });
+
+  const sub = closeDialogRef.componentInstance.onAdd.subscribe((data: Topic) => {
+      closeDialogRef.close();
+      this.deleteTopic(data);
+      this.snackBar.show("Topic closed correctly", "", 2000);
+    });
+  }
 
   ngOnInit() {
     this.getTopics();
@@ -25,7 +52,6 @@ export class ActiveGroupsComponent implements OnInit {
 
   closeChild(state:boolean){
     this.isHidden = state;
-    this.blur = false;
   }
 
   getTopics():void{
@@ -42,7 +68,18 @@ export class ActiveGroupsComponent implements OnInit {
   onSelect(topic: Topic){
     this.selectedTopic = topic;
     this.isHidden = false;
-    this.blur = true;
+  }
+
+  openDialog(topic: Topic){
+    let dialogRef = this.dialog.open(EditionPopupComponent, {
+      data: {topic:topic}
+    });
+
+    const sub = dialogRef.componentInstance.onAdd.subscribe((data: Topic) => {
+        dialogRef.close();
+        this.openTopic(topic);
+        this.snackBar.show("Topic edited correctly", "", 2000);
+    });
   }
 
   openTopic(topic:Topic){
@@ -57,11 +94,19 @@ export class ActiveGroupsComponent implements OnInit {
     this.orderService.orderByCreationDate(this.topics);
   }
 
+  orderByDescription(){
+    this.orderService.orderByDescription(this.topics);
+  }
+
   orderByLearning(){
     this.orderService.orderByLearning(this.topics);
   }
 
   orderByTeachers(){
     this.orderService.orderByTeachers(this.topics);
+  }
+
+  orderByChat(){
+    this.orderService.orderByChat(this.topics);
   }
 }

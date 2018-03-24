@@ -1,19 +1,42 @@
 <div class="table-container">
-  <table class="bordered highlight responsive-table">
+  <div class="item-number-option">
+    <mat-form-field>
+      <mat-select #selectItems placeholder="Items per page" [value]="10">
+        <mat-option *ngFor="let item of items" [value]="item.value">
+          {{ item.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> 
+  <div class="item-number-option sorting-list-container">
+    <mat-form-field>
+      <mat-select #orderItems placeholder="Order by" [value]="10">
+        <mat-option [value]="TopicName" (click)="orderByTopic()">Topic name</mat-option>
+        <mat-option [value]="CreationDate" (click)="orderByCreationDate()">Creation Date</mat-option>
+        <mat-option [value]="CloseDate" (click)="orderByClosedDate()">Closed date</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="clear"></div>
+  <table [mfData]="topics" #mf="mfDataTable" [mfRowsOnPage]="selectItems.value==undefined?10:selectItems.value">
        <thead>
       <tr>
         <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
         <th>Created at <a (click)="orderByCreationDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
         <th>Closed at <a (click)="orderByClosedDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor = "let topic of topics">
+      <tr *ngFor = "let topic of mf.data">
         <td>{{ topic.name }}</td>
-        <td>{{ topic.createdAt | timeAgo}}</td>
-        <td>{{ topic.closedAt | timeAgo}}</td>
+        <td class="date-field">{{ topic.createdAt | timeAgo}}</td>
+        <td class="date-field">{{ topic.closedAt | timeAgo}}</td>
       </tr>
     </tbody>
+    <tfoot>
+      <td>
+        <mfBootstrapPaginator></mfBootstrapPaginator>
+      </td>
+    </tfoot>
   </table>
 </div>

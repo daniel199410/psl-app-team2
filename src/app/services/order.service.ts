@@ -8,6 +8,8 @@ export class OrderService {
   public isAscendingLearning: boolean = false;
   public isCreationDate: boolean = false;
   public isAscendingClosedDate: boolean = false;
+  public isAscendingDescription: boolean = false;
+  public isAscendingChat: boolean = false;
   constructor() { }
 
   orderByTopic(topics:Topic[]){
@@ -18,6 +20,18 @@ export class OrderService {
       this.isAscendingTopic = !this.isAscendingTopic;
       topics.sort(function(a,b){
         return a.name < b.name ? 1: -1;
+      });
+    }
+  }
+
+  orderByDescription(topics:Topic[]){
+    if(this.isAscendingDescription){
+      this.isAscendingDescription = !this.isAscendingDescription;
+      topics.sort((a,b) => a.description > b.description ? 1: -1);
+    }else{
+      this.isAscendingDescription = !this.isAscendingDescription;
+      topics.sort(function(a,b){
+        return a.description < b.description ? 1: -1;
       });
     }
   }
@@ -63,6 +77,16 @@ export class OrderService {
     }else{
       this.isAscendingClosedDate = !this.isAscendingClosedDate;
       topics.sort((a,b) => a.closedAt < b.closedAt ? 1: -1);
+    }
+  }
+
+  orderByChat(topics:Topic[]){
+    if(this.isAscendingChat){
+      this.isAscendingChat = !this.isAscendingChat;
+      topics.sort((a,b) => a.chat > b.chat ? 1: -1);
+    }else{
+      this.isAscendingChat = !this.isAscendingChat;
+      topics.sort((a,b) => a.chat < b.chat ? 1: -1);
     }
   }
 }

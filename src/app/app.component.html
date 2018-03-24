@@ -1,8 +1,8 @@
 <nav class="nav">
-  <ul>
-    <li [class.active]="checkSelected(1)" (click)="changeTab(1)"><a class="waves-effect waves-light" routerLink="topicsToBeOpen">Groups to be open</a></li>
-    <li [class.active]="checkSelected(2)" (click)="changeTab(2)"><a class="waves-effect waves-light" routerLink="openTopics">Opened topics</a></li>
-    <li [class.active]="checkSelected(3)" (click)="changeTab(3)"><a class="waves-effect waves-light" routerLink="closedGroups">Closed topics</a></li>
-  </ul>
+    <ul>
+      <li [class.active]="checkSelected(1)" (click)="changeTab(1)"><a mat-button routerLink="topicsToBeOpen">Groups to open</a></li>
+      <li [class.active]="checkSelected(2)" (click)="changeTab(2)"><a mat-button routerLink="openTopics">Open groups</a></li>
+      <li [class.active]="checkSelected(3)" (click)="changeTab(3)"><a mat-button routerLink="closedGroups">Closed groups</a></li>
+    </ul>
 </nav>
 <router-outlet></router-outlet>

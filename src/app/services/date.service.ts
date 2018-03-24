@@ -7,16 +7,15 @@ export class DateService {
   constructor() { }
 
   getDate():string{
-    this.date = new Date();
-    var day = ("0" + (this.date.getDate())).slice(-2)
-    var month = ("0" + (this.date.getMonth() + 1)).slice(-2) //January is 0!
-    var year = this.date.getFullYear();
-    var hour = ("0" + (this.date.getHours())).slice(-2)
-    var minutes = ("0" + (this.date.getMinutes())).slice(-2);
-    var seconds = ("0" + (this.date.getSeconds())).slice(-2);
+   this.date = new Date();
+   var day = this.date.getDate();
+   var month = this.date.getMonth() + 1;
+   var year = this.date.getFullYear();
+   var hour = this.date.getHours();
+   var minutes = this.date.getMinutes();
+   var seconds = this.date.getSeconds();
 
     this.today = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
-    console.log(this.today);
     return this.today;
   }
 

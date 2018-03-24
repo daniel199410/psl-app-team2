@@ -1,14 +1,15 @@
-<div [class.hidden] = "hide">
-  <div *ngIf="topic" class="description-wrapper">
-    <div class="input-field">
-      <textarea class="description-input materialize-textarea" #DescriptionText required>{{ topic.description}}</textarea>
-      <label class="active" for="textAreaD">Description</label>
-    </div>
-    <div class="input-field">
-      <label class="active" for="linkText">Chat</label>
-      <input #linkText type="text" class="description-input inputText" required>
-    </div>
-    <a class="waves-effect waves-light btn icon-container" (click)="createTopic(topic, linkText.value, DescriptionText.value)">Open group</a>
-    <div class="close-pop-up"><a class="block" (click)="onClose()" ><i class="material-icons ">close</i></a></div>
-  </div>
+<h1 mat-dialog-title>{{data.topic.name}}</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field class="full-width">
+      <textarea #descriptionText matInput matTextareaAutosize matAutosizeMaxRows="15" placeholder="Description *" value="{{data.topic.description}}"></textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input #linkText matInput placeholder="Link *" value="{{data.topic.link}}">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button cdkFocusInitial color="primary" (click)="createTopic(data.topic, linkText.value, descriptionText.value)">Open group</button>
+  <button mat-button [mat-dialog-close]="" >Close</button>
 </div>

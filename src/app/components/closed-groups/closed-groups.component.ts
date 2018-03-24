@@ -11,6 +11,11 @@ import { OrderService } from '../../services/order.service';
 export class ClosedGroupsComponent implements OnInit {
 
   private topics: Topic[];
+  items = [
+    {value: "10", viewValue:"10"},
+    {value: "20", viewValue:"20"},
+    {value: "30", viewValue:"30"}
+  ];
   constructor(private topicsService:TopicsService, private orderService:OrderService) { }
 
   ngOnInit() {

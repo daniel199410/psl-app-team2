@@ -17,3 +17,7 @@ button:hover {
 .ready-to-open{
     background-color: #B2DFDB;
 }
+
+.ready-to-close{
+    background-color: rgb(223, 178, 178);
+}

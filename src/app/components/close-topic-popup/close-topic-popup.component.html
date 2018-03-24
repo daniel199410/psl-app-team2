@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.topic.name}}</h1>
+<div mat-dialog-content>
+  <p>Are you sure you want to close <strong>{{data.topic.name}}</strong> group</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button cdkFocusInitial color="primary" (click)="closeTopic(data.topic)">Yes, close</button>
+  <button mat-button [mat-dialog-close]="" >Don't close</button>
+</div>

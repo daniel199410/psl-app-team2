@@ -1,29 +1,55 @@
-<div [style.height.px]="height" [class.gray]="blur">
-  <div class="table-container" [class.blur]="blur">
-    <table class="bordered highlight responsive-table">
-      <thead class="bordered highlight responsive-table">
-        <tr>
-          <th>Topic <a (click)="orderByTopic()"><i class="material-icons order-icons">&#xE240;</i></a></th>
-          <th>Description</th>
-          <th>Date open <a (click)="orderByCreationDate()"><i class="material-icons order-icons">&#xE240;</i></a></th>
-          <th>Learning<a (click)="orderByLearning()"><i class="material-icons order-icons">&#xE240;</i></a></th>
-          <th>Guiding<a (click)="orderByTeachers()"><i class="material-icons order-icons">&#xE240;</i></a></th>
-          <th>Chat</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor = "let topic of topics">
-          <td>{{ topic.name }}</td>
-          <td class="description-field">{{ topic.description }}</td>
-          <td>{{ topic.openedAt | timeAgo}}</td>
-          <td>{{ topic.students }}</td>
-          <td>{{ topic.teachers }}</td> 
-          <td>{{ topic.chat }}</td>     
-          <td><a class="black-text" (click)="deleteTopic(topic)"><i class="material-icons edition-icons">close</i>close</a></td>
-          <td><a (click)="onSelect(topic)" class="icon-container black-text"><i class="material-icons edition-icons">border_color</i>edit</a></td>
-        </tr>
-      </tbody>
-    </table>
+<div class="table-container">
+  <div class="item-number-option">
+    <mat-form-field>
+      <mat-select #selectItems placeholder="Items per page" [value]="10">
+        <mat-option *ngFor="let item of items" [value]="item.value">
+          {{ item.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-  <app-edition-popup [topic]="selectedTopic" [isHidden]="isHidden" (hideEmitter)="closeChild($event)"></app-edition-popup>
+  <div class="item-number-option sorting-list-container">
+    <mat-form-field>
+      <mat-select #orderItems placeholder="Order by" [value]="10">
+        <mat-option [value]="TopicName" (click)="orderByTopic()">Topic name</mat-option>
+        <mat-option [value]="Description" (click)="orderByDescription()">Description</mat-option>
+        <mat-option [value]="CreationDate" (click)="orderByCreationDate()">Creation Date</mat-option>
+        <mat-option [value]="Learning" (click)="orderByLearning()">Learning</mat-option>
+        <mat-option [value]="Teachers" (click)="orderByTeachers()">Teachers</mat-option>
+        <mat-option [value]="Chat" (click)="orderByChat()">Chat</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="clear"></div>
+  <table class="bordered highlight responsive-table" [mfData]="topics" #mf="mfDataTable" [mfRowsOnPage]="selectItems.value==undefined?10:selectItems.value">
+    <thead class="bordered highlight responsive-table">
+      <tr>
+        <th><a (click)="orderByTopic()">Topic<i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th><a (click)="orderByDescription()">Description<i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th><a (click)="orderByCreationDate()">Date open<i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th><a (click)="orderByLearning()">Learning<i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th><a (click)="orderByTeachers()">Guiding<i class="material-icons order-icons">&#xE240;</i></a></th>
+        <th><a (click)="orderByChat()">Chat<i class="material-icons order-icons">&#xE240;</i></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let topic of mf.data">
+        <td>{{ topic.name }}</td>
+        <td class="description-field">{{ topic.description }}</td>
+        <td>{{ topic.openedAt | timeAgo }}</td>
+        <td class="right-align">{{ topic.students }}</td>
+        <td class="right-align">{{ topic.teachers }}</td> 
+        <td class="chat-field">{{ topic.chat }}</td>    
+        <div class="button-container">  
+          <a class="black-text icon-container" (click)="openCloseDialog(topic)"><i class="material-icons edition-icons">close</i>close</a>
+          <a (click)="openDialog(topic)" class="icon-container black-text"><i class="material-icons edition-icons">border_color</i>edit</a>
+        </div>
+      </tr>
+    </tbody>
+    <tfoot>
+      <td>
+        <mfBootstrapPaginator></mfBootstrapPaginator>
+      </td>
+    </tfoot>
+  </table>
 </div>

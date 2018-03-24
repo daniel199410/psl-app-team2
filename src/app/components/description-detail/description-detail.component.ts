@@ -1,10 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog'
+import { MatInputModule } from '@angular/material';
 
 import { Topic } from '../../models/topic';
-import { GroupsToBeOpenComponent } from '../groups-to-be-open/groups-to-be-open.component';
 import { DateService } from '../../services/date.service';
+import { GroupsToBeOpenComponent } from '../groups-to-be-open/groups-to-be-open.component';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-description-detail',
@@ -13,35 +16,33 @@ import { DateService } from '../../services/date.service';
 })
 export class DescriptionDetailComponent implements OnInit {
 
-  @Input() topic: Topic;
-  @Input() hide: boolean;
   constructor(
-    private route: ActivatedRoute, 
-    private location: Location ,
-    private GroupsToBeOpenComponent: GroupsToBeOpenComponent,
-    private dateService:DateService
+    private route: ActivatedRoute,
+    private location: Location,
+    private dateService: DateService,
+    private snackBar: SnackbarService,
+    public dialogRef: MatDialogRef<DescriptionDetailComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: Topic
   ) { }
 
-  @Output() hidec: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onAdd = new EventEmitter<Topic>(true);
 
-  onClose() {
-    this.hidec.emit(true);
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  createTopic(topic: Topic, chat: string, des: string) {
-    if (des == "") {
-      alert("El campo descipción debe ser digitado.");
-    } else if (chat=="") {
-      alert("El campo chat debe ser digitado.");
+  createTopic(topic: Topic, newChat: string, newDescription: string) {
+    if (newDescription.length == 0) {
+      this.snackBar.show("Description field must not be empty", "", 2000);
+    } else if (newChat.length == 0) {
+      this.snackBar.show("Link field must not be empty", "", 2000);
     } else {
       topic.openedAt = this.dateService.getDate();
-      topic.description=des;
-      topic.chat=chat;
-      this.GroupsToBeOpenComponent.openTopic(topic);
-      this.hidec.emit(true);
+      topic.description=newDescription;
+      topic.chat=newChat;
+      this.onAdd.emit(this.data);
     }
   }
 }
